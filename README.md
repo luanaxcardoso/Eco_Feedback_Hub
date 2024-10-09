@@ -1,7 +1,7 @@
  
 <p align="center">
   <a href="https://github.com/luanaxcardoso">
-    <img src="https://readme-typing-svg.herokuapp.com/?lines=🌿+ECO+FEEDBACK+HUB+🌱;%20{REPROGRAMA};&font=Roboto+Slab&center=true&width=650&height=120&color=32CD32&vCenter=true&size=45&duration=7000">
+    <img src="https://readme-typing-svg.herokuapp.com/?lines=🌿+ECO+FEEDBACK+HUB+🌱;%20{REPROGRAMA};&font=Roboto+Slab&center=true&width=650&height=120&color=32CD32&vCenter=true&size=45&duration=5000">
   </a>
 </p>
 
