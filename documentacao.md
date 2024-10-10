@@ -1,20 +1,21 @@
-**Abrir o terminal**
-npm install -g @nestjs/cli
+# Guia de Configuração do Projeto NestJS
 
-**Criar o projeto**
-nest new .
+**Abrir o terminal**  
+`npm install -g @nestjs/cli`
 
-**Rodar o projeto**
-npm run start:dev
-npm run start
+**Criar o projeto dentro da pasta**  
+`nest new .`
 
-**Instalar eslint e prettier**
-npm install prettier eslint-config-prettier eslint-plugin-prettier --save-dev
-npx eslint --init
+**Rodar o projeto**  
+`npm run start:dev`  
+`npm run start`
 
-**Instalar o class-validator e class-transformer**
-npm install class-validator class-transformer
+**Instalar eslint e prettier**  
+`npm install prettier eslint-config-prettier eslint-plugin-prettier --save-dev`  
+`npx eslint --init`
 
+**Instalar o class-validator e class-transformer**  
+`npm install class-validator class-transformer`
 
-**Instalar o TypeORM  e Postgres**
-npm install @nestjs/typeorm typeorm pg 
+**Instalar o TypeORM e Postgres**  
+`npm install @nestjs/typeorm typeorm pg`
