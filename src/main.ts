@@ -1,9 +1,14 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import * as dotenv from 'dotenv';
+
+
+dotenv.config();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -11,8 +16,10 @@ async function bootstrap() {
       transform: false,
     }),
   );
+
   await app.listen(3000);
 
-  console.log('Aplicação está rodando em: http://localhost:3000');
+  console.log(`Aplicação está rodando em: http://localhost:${process.env.PORT || 3000}`);
 }
+
 bootstrap();
