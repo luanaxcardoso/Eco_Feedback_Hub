@@ -26,5 +26,16 @@
 **Instalar o TypeORM e Postgres**  
 `npm install @nestjs/typeorm typeorm pg`
 
+**Criar migratios**
+`npm run typeorm migration:create src/database/migrations/nome-da-migration`
+
+**Gerar e rodar as migratios**
+`npm run typeorm -- -d ./src/database/dataSource.ts migration:run` `
+
 **Instalar o class-validator e class-transformer**  
 `npm install class-validator class-transformer`
+
+---------------------------------------------------
+**Criar um resource**
+`nest g resource nome-do-resource`
+
