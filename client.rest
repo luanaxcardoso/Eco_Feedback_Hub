@@ -1,10 +1,11 @@
 @baseUrl = http://localhost:3000
 
-POST {{baseUrl}}/pessoas/
+POST {{baseUrl}}/produtos/
 Content-Type: application/json
 
 {
-    "nome": "Luana",
-    "idade": 38,
-    "email": "luana@gmail.com"
+    "nome": "Hamburguer de Lentilha",
+    "marca": "Seara",
+    "preco": 23.00,
+    "quantidade": 2
 }

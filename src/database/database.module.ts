@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as dotenv from 'dotenv';
+import { ProdutoSubscriber } from './subscribers/produto.subscriber';
 
 
 dotenv.config();
@@ -24,6 +25,7 @@ dotenv.config();
         entities: [__dirname + '/../**/*.entity{.ts,.js}'], 
         migrations: [__dirname + '/../migrations/*{.ts,.js}'],
         autoLoadEntities: true,
+        subscribers: [ProdutoSubscriber],
         synchronize: true, 
       }),
     }),
