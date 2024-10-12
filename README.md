@@ -27,5 +27,5 @@ Criar um espaço onde consumidores possam descobrir, avaliar e apoiar produtos e
 
 📝 **Comentários são fundamentais! Compartilhar suas opiniões sobre produtos ajuda a influenciar outros consumidores, permitindo que mais pessoas tomem decisões de compra informadas e conscientes.**
 
-![Modelo Relacional](https://github.com/luanaxcardoso/Eco_Feedback_Hub/blob/main/docs/diagrama/modelo-relacional.png)
+
 
