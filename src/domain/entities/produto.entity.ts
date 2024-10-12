@@ -21,6 +21,4 @@ export class Produto {
     @CreateDateColumn()
     createdAt?: Date;
 
-    @UpdateDateColumn()
-    updatedAt?: Date;
 }

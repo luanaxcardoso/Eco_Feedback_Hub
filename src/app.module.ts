@@ -4,7 +4,7 @@ import { AppService } from './app/app.service';
 import 'dotenv/config'; 
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
-import { ProdutosModule } from './produtos/produtos.module';
+import { ProdutosModule } from './modules/produtos.module';
 
 
 @Module({
