@@ -4,8 +4,31 @@ POST {{baseUrl}}/produtos/
 Content-Type: application/json
 
 {
-    "nome": "Hamburguer de Lentilha",
-    "marca": "Seara",
-    "preco": 23.00,
-    "quantidade": 2
+    "nome": "Nuggets",
+    "marca": "Fazenda do Futuro",
+    "preco": 26.00,
+    "quantidade": 10
 }
+
+###
+GET {{baseUrl}}/produtos/
+?limit=5
+&offset=0
+
+###
+GET {{baseUrl}}/produtos/1
+
+
+###
+PUT {{baseUrl}}/produtos/2
+Content-Type: application/json
+
+{
+    "nome": "Hamburguer Defumado",
+    "marca": "Sadia",
+    "preco": 26.00,
+    "quantidade": 4
+}
+
+###
+DELETE {{baseUrl}}/produtos/3
