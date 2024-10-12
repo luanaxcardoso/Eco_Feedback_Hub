@@ -4,6 +4,7 @@ import { AppService } from './app/app.service';
 import 'dotenv/config'; 
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
+import { ProdutosModule } from './produtos/produtos.module';
 
 
 @Module({
@@ -12,6 +13,7 @@ import { DatabaseModule } from './database/database.module';
       isGlobal: true,
       envFilePath: '.env' }),
       DatabaseModule,
+      ProdutosModule,
       ],
   controllers: [AppController],
   providers: [AppService],

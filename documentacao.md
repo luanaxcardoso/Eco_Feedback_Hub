@@ -39,3 +39,5 @@
 **Criar um resource**
 `nest g resource nome-do-resource`
 
+---------------------------------------------------
+
