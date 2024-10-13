@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { CreateProdutoDto } from "../dto/create-produto.dto";
-import { UpdateProdutoDto } from "../dto/update-produto.dto";
+import { CreateProdutoDto } from "../dtos/create-produto.dto";
+import { UpdateProdutoDto } from "../dtos/update-produto.dto";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Produto } from "../../domain/entities/produto.entity";
 import { Repository } from "typeorm";
@@ -11,7 +11,6 @@ export class ProdutosService {
     @InjectRepository(Produto)
     private readonly produtoRepository: Repository<Produto>
   ) {}
-
 
   async create(createProdutoDto: CreateProdutoDto) {
     const produtoDto = {
@@ -24,7 +23,6 @@ export class ProdutosService {
     return await this.produtoRepository.save(produtoNovo);
   }
 
-
   async findAll() {
     const produtos = await this.produtoRepository.find({
       order: {
@@ -34,7 +32,6 @@ export class ProdutosService {
     return produtos;
   }
 
-  
   async findOne(id: number) {
     const produto = await this.produtoRepository.findOneBy({
       id,
@@ -43,7 +40,6 @@ export class ProdutosService {
       throw new NotFoundException("Produto não encontrado");
     }
     return produto;
-    
   }
 
   async update(id: number, updateProdutoDto: UpdateProdutoDto) {
@@ -54,17 +50,15 @@ export class ProdutosService {
       quantidade: updateProdutoDto.quantidade,
     };
 
-    const produto = await this.produtoRepository.preload(
-      {
-        id,
-        ...produtoDto,
-      })
+    const produto = await this.produtoRepository.preload({
+      id,
+      ...produtoDto,
+    });
     if (!produto) {
       throw new NotFoundException("Produto não encontrado");
     }
     return this.produtoRepository.save(produto);
   }
-  
 
   async remove(id: number) {
     const produto = await this.produtoRepository.findOneBy({
