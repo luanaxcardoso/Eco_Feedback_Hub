@@ -5,6 +5,7 @@ import 'dotenv/config';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
 import { ProdutosModule } from './modules/produtos.module';
+import { AvaliacoesModule } from './avaliacoes/avaliacoes.module';
 
 
 @Module({
@@ -14,6 +15,7 @@ import { ProdutosModule } from './modules/produtos.module';
       envFilePath: '.env' }),
       DatabaseModule,
       ProdutosModule,
+      AvaliacoesModule,
       ],
   controllers: [AppController],
   providers: [AppService],

@@ -32,3 +32,25 @@ Content-Type: application/json
 
 ###
 DELETE {{baseUrl}}/produtos/3
+
+
+# Avaliações
+
+###
+
+POST {{baseUrl}}/avaliacoes/
+Content-Type: application/json
+
+{
+  "nome_Pessoa": "Luana Cardoso",
+  "idade": 38,
+  "email": "luana@gmail.com",
+  "nota": "5",
+  "comentario": "Produto excelente! Recomendo a todos.",
+  "origem_Animal": false,
+  "origem_Vegetal": true,
+  "livreDe_Crueldade": true,
+  "embalagem_Reciclavel": true,
+  "nacional": true,
+  "produto_id": 2
+}
