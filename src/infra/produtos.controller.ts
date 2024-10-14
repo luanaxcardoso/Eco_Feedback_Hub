@@ -19,7 +19,6 @@ export class ProdutosController {
 
   @ApiOperation({ summary: "Cria um novo produto" })
   @ApiResponse({ status: 201, description: "Produto criado com sucesso." })
-  @ApiResponse({ status: 400, description: "Dados inválidos." })
   @Post()
   create(@Body() createProdutoDto: CreateProdutoDto) {
     return this.produtosService.create(createProdutoDto);
@@ -35,7 +34,6 @@ export class ProdutosController {
   @ApiOperation({ summary: "Retorna um produto pelo ID" })
   @ApiParam({ name: "id", description: "ID do produto", type: String })
   @ApiResponse({ status: 200, description: "Produto retornado com sucesso." })
-  @ApiResponse({ status: 404, description: "Produto não encontrado." })
   @Get(":id")
   findOne(@Param("id") id: string) {
     return this.produtosService.findOne(+id);
@@ -44,7 +42,6 @@ export class ProdutosController {
   @ApiOperation({ summary: "Atualiza um produto pelo ID" })
   @ApiParam({ name: "id", description: "ID do produto", type: String })
   @ApiResponse({ status: 200, description: "Produto atualizado com sucesso." })
-  @ApiResponse({ status: 404, description: "Produto não encontrado." })
   @Put(":id")
   update(@Param("id") id: string, @Body() updateProdutoDto: UpdateProdutoDto) {
     return this.produtosService.update(+id, updateProdutoDto);
@@ -53,7 +50,6 @@ export class ProdutosController {
   @ApiOperation({ summary: "Remove um produto pelo ID" })
   @ApiParam({ name: "id", description: "ID do produto", type: String })
   @ApiResponse({ status: 200, description: "Produto removido com sucesso." })
-  @ApiResponse({ status: 404, description: "Produto não encontrado." })
   @Delete(":id")
   remove(@Param("id") id: string) {
     return this.produtosService.remove(+id);
