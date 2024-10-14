@@ -41,3 +41,5 @@
 
 ---------------------------------------------------
 
+**Instalar o Swagger**
+`npm install @nestjs/swagger swagger-ui-express`

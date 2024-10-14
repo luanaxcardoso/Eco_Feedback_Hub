@@ -20,19 +20,18 @@ GET {{baseUrl}}/produtos/7
 
 
 ###
-PUT {{baseUrl}}/produtos/2
+PUT {{baseUrl}}/produtos/7
 Content-Type: application/json
 
 {
-    "nome": "Hamburguer Defumado",
-    "marca": "Sadia",
-    "preco": 26.00,
-    "quantidade": 4
+    "nome": "Rímel preto",
+    "marca": "Vizella",
+    "preco": 45.00,
+    "quantidade": 1
 }
 
 ###
 DELETE {{baseUrl}}/produtos/3
-
 
 
 
