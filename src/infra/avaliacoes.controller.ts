@@ -19,7 +19,6 @@ export class AvaliacoesController {
 
   @ApiOperation({ summary: "Cria uma nova avaliação" })
   @ApiResponse({ status: 201, description: "Avaliação criada com sucesso." })
-  @ApiResponse({ status: 400, description: "Dados inválidos." })
   @Post()
   create(@Body() createAvaliacoesDto: CreateAvaliacoesDto) {
     return this.avaliacoesService.create(createAvaliacoesDto);
@@ -35,7 +34,6 @@ export class AvaliacoesController {
   @ApiOperation({ summary: "Retorna uma avaliação pelo ID" })
   @ApiParam({ name: "id", description: "ID da avaliação", type: String })
   @ApiResponse({ status: 200, description: "Avaliação retornada com sucesso." })
-  @ApiResponse({ status: 404, description: "Avaliação não encontrada." })
   @Get(":id")
   findOne(@Param("id") id: string) {
     return this.avaliacoesService.findOne(+id);
@@ -44,7 +42,6 @@ export class AvaliacoesController {
   @ApiOperation({ summary: "Atualiza uma avaliação pelo ID" })
   @ApiParam({ name: "id", description: "ID da avaliação", type: String })
   @ApiResponse({ status: 200, description: "Avaliação atualizada com sucesso." })
-  @ApiResponse({ status: 404, description: "Avaliação não encontrada." })
   @Put(":id")
   update(
     @Param("id") id: string,
@@ -56,7 +53,6 @@ export class AvaliacoesController {
   @ApiOperation({ summary: "Remove uma avaliação pelo ID" })
   @ApiParam({ name: "id", description: "ID da avaliação", type: String })
   @ApiResponse({ status: 200, description: "Avaliação removida com sucesso." })
-  @ApiResponse({ status: 404, description: "Avaliação não encontrada." })
   @Delete(":id")
   remove(@Param("id") id: string) {
     return this.avaliacoesService.remove(+id);
