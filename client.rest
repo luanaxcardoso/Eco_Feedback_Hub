@@ -4,10 +4,10 @@ POST {{baseUrl}}/produtos/
 Content-Type: application/json
 
 {
-    "nome": "Nuggets",
-    "marca": "Fazenda do Futuro",
-    "preco": 26.00,
-    "quantidade": 10
+    "nome": "Rímel preto",
+    "marca": "Vizella",
+    "preco": 125.00,
+    "quantidade": 1
 }
 
 ###
@@ -16,7 +16,7 @@ GET {{baseUrl}}/produtos/
 &offset=0
 
 ###
-GET {{baseUrl}}/produtos/1
+GET {{baseUrl}}/produtos/7
 
 
 ###
@@ -35,25 +35,25 @@ DELETE {{baseUrl}}/produtos/3
 
 
 
+
 # Avaliações
 
 ###
-
 POST {{baseUrl}}/avaliacoes/
 Content-Type: application/json
 
 {
   "nome_Pessoa": "Luana Cardoso",
   "idade": 38,
-  "email": "luana@gmail.com",
+  "email": "luanacardoso@gmail.com",
   "nota": "5",
-  "comentario": "Produto excelente! Recomendo a todos.",
+  "comentario": "Produto tem ótima fixação",
   "origem_Animal": false,
   "origem_Vegetal": true,
   "livreDe_Crueldade": true,
   "embalagem_Reciclavel": true,
   "nacional": true,
-  "produto_id": 2
+  "produto_id": 7
 }
 
 ###
@@ -72,18 +72,17 @@ Content-Type: application/json
 
 {
   "nome_Pessoa": "Luana Cardoso",
-  "idade": 36,
+  "idade": 38,
   "email": "luanacardoso@gmail.com",
   "nota": "5",
-  "comentario": "Produto ótimo! Recomendo a todos.",
+  "comentario": "Produto tem ótima fixação",
   "origem_Animal": false,
   "origem_Vegetal": true,
   "livreDe_Crueldade": true,
   "embalagem_Reciclavel": true,
   "nacional": true,
-  "produto_id": 2
+  "produto_id": 7
 }
 
-
 ###
-DELETE {{baseUrl}}/avaliacoes/3
+DELETE {{baseUrl}}/avaliacoes/2

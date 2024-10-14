@@ -12,16 +12,18 @@ export class ProdutosService {
     private readonly produtoRepository: Repository<Produto>
   ) {}
 
+
   async create(createProdutoDto: CreateProdutoDto) {
-    const produtoDto = {
-      nome: createProdutoDto.nome,
-      marca: createProdutoDto.marca,
-      preco: createProdutoDto.preco,
-      quantidade: createProdutoDto.quantidade,
+    const produtoNovo = this.produtoRepository.create(createProdutoDto);
+    const produtoSalvo = await this.produtoRepository.save(produtoNovo);
+
+    
+    return {
+      id: produtoSalvo.id,
+      ...produtoSalvo,
     };
-    const produtoNovo = this.produtoRepository.create(produtoDto);
-    return await this.produtoRepository.save(produtoNovo);
   }
+
 
   async findAll() {
     const produtos = await this.produtoRepository.find({
@@ -31,6 +33,7 @@ export class ProdutosService {
     });
     return produtos;
   }
+
 
   async findOne(id: number) {
     const produto = await this.produtoRepository.findOneBy({
