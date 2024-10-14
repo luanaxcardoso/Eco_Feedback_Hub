@@ -4,9 +4,9 @@ POST {{baseUrl}}/produtos/
 Content-Type: application/json
 
 {
-    "nome": "Rímel preto",
+    "nome": "Rímel azul",
     "marca": "Vizella",
-    "preco": 125.00,
+    "preco": 45.00,
     "quantidade": 1
 }
 
@@ -20,7 +20,7 @@ GET {{baseUrl}}/produtos/7
 
 
 ###
-PUT {{baseUrl}}/produtos/7
+PUT {{baseUrl}}/produtos/9
 Content-Type: application/json
 
 {
@@ -32,7 +32,6 @@ Content-Type: application/json
 
 ###
 DELETE {{baseUrl}}/produtos/3
-
 
 
 # Avaliações
@@ -52,7 +51,7 @@ Content-Type: application/json
   "livreDe_Crueldade": true,
   "embalagem_Reciclavel": true,
   "nacional": true,
-  "produto_id": 7
+  "produto_id": 5
 }
 
 ###
