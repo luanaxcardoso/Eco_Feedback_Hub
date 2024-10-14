@@ -1,6 +1,7 @@
 import { IsString, IsInt, IsEmail, IsBoolean, IsNotEmpty, IsPositive } from 'class-validator';
 
 export class CreateAvaliacoesDto {
+  
   @IsString()
   @IsNotEmpty()
   readonly nome_Pessoa: string;

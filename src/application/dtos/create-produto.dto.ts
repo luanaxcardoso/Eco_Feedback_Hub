@@ -4,16 +4,16 @@ export class CreateProdutoDto {
     
     @IsNotEmpty()
     @IsString()
-    nome: string;
+    readonly nome: string;
 
     @IsNotEmpty()
     @IsString()
-    marca: string;
+    readonly marca: string;
 
     @IsNumber()
     @IsPositive()
-    preco: number;
+    readonly preco: number;
 
     @IsNumber()
-    quantidade: number;
+    readonly quantidade: number;
 }
