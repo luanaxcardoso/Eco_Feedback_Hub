@@ -27,7 +27,7 @@
 `npm install @nestjs/typeorm typeorm pg`
 
 **Criar migratios**
-`npm run typeorm migration:create src/database/migrations/nome-da-migration`
+`npm run typeorm migration:create src/database/migrations/produtos`
 
 **Gerar e rodar as migratios**
 `npm run typeorm -- -d ./src/database/dataSource.ts migration:run` `

@@ -34,6 +34,7 @@ Content-Type: application/json
 DELETE {{baseUrl}}/produtos/3
 
 
+
 # Avaliações
 
 ###
@@ -54,3 +55,35 @@ Content-Type: application/json
   "nacional": true,
   "produto_id": 2
 }
+
+###
+GET {{baseUrl}}/avaliacoes/
+?limit=5
+&offset=0
+
+###
+GET {{baseUrl}}/avaliacoes/1
+?limit=5
+&offset=0
+
+###
+PUT {{baseUrl}}/avaliacoes/1
+Content-Type: application/json
+
+{
+  "nome_Pessoa": "Luana Cardoso",
+  "idade": 36,
+  "email": "luanacardoso@gmail.com",
+  "nota": "5",
+  "comentario": "Produto ótimo! Recomendo a todos.",
+  "origem_Animal": false,
+  "origem_Vegetal": true,
+  "livreDe_Crueldade": true,
+  "embalagem_Reciclavel": true,
+  "nacional": true,
+  "produto_id": 2
+}
+
+
+###
+DELETE {{baseUrl}}/avaliacoes/3

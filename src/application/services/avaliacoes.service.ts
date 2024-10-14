@@ -37,19 +37,48 @@ export class AvaliacoesService {
     };
   }
 
-  findAll() {
-    return `This action returns all avaliacoes`;
+
+  async findAll() {
+    const avaliacoes = await this.avaliacaoRepository.find({
+      order: {
+        id: "ASC",
+      },
+    });
+    return avaliacoes;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} avaliacoe`;
+
+  async findOne(id: number) {
+    const avaliacao = await this.avaliacaoRepository.findOneBy({
+      id,
+    });
+    if (!avaliacao) {
+      throw new NotFoundException("Avaliacao não encontrada");
+    }
+    return avaliacao;
   }
 
-  update(id: number, updateAvaliacoesDto: UpdateAvaliacoesDto) {
-    return `This action updates a #${id} avaliacoe`;
+
+  async update(id: number, updateAvaliacoesDto: Partial<UpdateAvaliacoesDto>) {
+    const avaliacao = await this.avaliacaoRepository.findOne({where: {id}});
+    if (!avaliacao) {
+      throw new NotFoundException("Avaliacao não encontrada");
+    }
+
+    Object.assign(avaliacao, updateAvaliacoesDto);
+
+    return await this.avaliacaoRepository.save(avaliacao);  
+      
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} avaliacoe`;
+
+  async remove(id: number) {
+   const avaliacao = await this.avaliacaoRepository.findOneBy({
+      id,
+  });
+  if (!avaliacao) {
+    throw new NotFoundException("Avaliacao não encontrada");
+  }
+  return this.avaliacaoRepository.remove(avaliacao);
   }
 }
