@@ -1,4 +1,5 @@
 import { Avaliacao } from "src/domain/entities/avaliacoes.entity";
+import { CategoriaProduto } from "src/domain/enum/categoria-produto.enum";
 import {
   Column,
   CreateDateColumn,
@@ -26,6 +27,12 @@ export class Produto {
 
   @CreateDateColumn()
   createdAt?: Date;
+
+  @Column({
+    type: "enum",
+    enum: CategoriaProduto,
+  })
+  categoria: CategoriaProduto;
 
   @OneToMany(() => Avaliacao, (avaliacao) => avaliacao.produto)
   avaliacoes: Avaliacao[];
