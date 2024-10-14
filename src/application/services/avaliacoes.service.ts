@@ -35,7 +35,11 @@ export class AvaliacoesService {
     return {
       id: avaliacao.id,
       ...avaliacao,
-      produto: produto.nome,
+      produto:{
+        id: produto.id,
+        nome: produto.nome,
+      }
+      
     };
   }
 
@@ -43,22 +47,28 @@ export class AvaliacoesService {
 
   async findAll() {
     const avaliacoes = await this.avaliacaoRepository.find({
+      relations: ["produto"],
       order: {
         id: "ASC",
       },
+      take: 10,
     });
     return avaliacoes;
+    
   }
 
 
   async findOne(id: number) {
-    const avaliacao = await this.avaliacaoRepository.findOneBy({
-      id,
+    const avaliacao = await this.avaliacaoRepository.findOne({
+      where: {id},
+      relations: ["produto"],
     });
     if (!avaliacao) {
       throw new NotFoundException("Avaliacao não encontrada");
     }
-    return avaliacao;
+    return avaliacao
+    
+    ;
   }
 
 
