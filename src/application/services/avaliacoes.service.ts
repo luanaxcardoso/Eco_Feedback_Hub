@@ -13,6 +13,7 @@ export class AvaliacoesService {
     private readonly avaliacaoRepository: Repository<Avaliacao>,
     private readonly produtosService: ProdutosService
   ) {}
+  
 
   async create(createAvaliacoesDto: CreateAvaliacoesDto) {
     const produto = await this.produtosService.findOne(
@@ -32,10 +33,12 @@ export class AvaliacoesService {
     await this.avaliacaoRepository.save(avaliacao);
 
     return {
+      id: avaliacao.id,
       ...avaliacao,
       produto: produto.nome,
     };
   }
+
 
 
   async findAll() {
