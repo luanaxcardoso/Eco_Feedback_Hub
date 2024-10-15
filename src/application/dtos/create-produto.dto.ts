@@ -43,4 +43,8 @@ export class CreateProdutoDto {
   })
   @IsEnum(CategoriaProduto) 
   readonly categoria: CategoriaProduto;
+
+  constructor(partial: Partial<CreateProdutoDto>) {
+    Object.assign(this, partial);
+  }
 }

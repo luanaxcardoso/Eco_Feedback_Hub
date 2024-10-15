@@ -84,4 +84,8 @@ export class CreateAvaliacoesDto {
   @IsInt()
   @IsPositive()
   readonly produto_id: number; 
+
+  constructor(partial: Partial<CreateAvaliacoesDto>) {
+    Object.assign(this, partial);
+  }
 }
