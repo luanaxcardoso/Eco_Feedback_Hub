@@ -36,7 +36,7 @@ export class CreateProdutoDto {
     readonly quantidade: number;
 
     @ApiProperty({
-      description: 'Categoria do produto',
+      description: 'Categorias dos produtos: Alimento, Bebida, Limpeza, Cosmético, Outro.',
       examples: [CategoriaProduto.ALIMENTO, CategoriaProduto.BEBIDA, CategoriaProduto.LIMPEZA, CategoriaProduto.COSMETICO, CategoriaProduto.OUTRO],
 
       enum: CategoriaProduto, 
