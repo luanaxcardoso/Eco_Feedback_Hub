@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNotEmpty, IsNumber, IsPositive, IsString } from "class-validator";
+import { IsEnum, IsNotEmpty, IsNumber, IsPositive, IsString } from "class-validator";
+import { CategoriaProduto } from "src/domain/enum/categoria-produto.enum";
 
 export class CreateProdutoDto {
     
@@ -33,4 +34,13 @@ export class CreateProdutoDto {
     })
     @IsNumber()
     readonly quantidade: number;
+
+    @ApiProperty({
+      description: 'Categorias dos produtos: Alimento, Bebida, Limpeza, Cosmético, Outro.',
+      examples: [CategoriaProduto.ALIMENTO, CategoriaProduto.BEBIDA, CategoriaProduto.LIMPEZA, CategoriaProduto.COSMETICO, CategoriaProduto.OUTRO],
+
+      enum: CategoriaProduto, 
+  })
+  @IsEnum(CategoriaProduto) 
+  readonly categoria: CategoriaProduto;
 }
