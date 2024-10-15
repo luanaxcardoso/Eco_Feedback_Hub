@@ -44,3 +44,15 @@
 **Instalar o Swagger**
 `npm install @nestjs/swagger swagger-ui-express`
 Documentação da API está disponível em: http://localhost:3000/swagger
+
+---------------------------------------------------
+
+**Testes**
+`npm install @nestjs/testing`
+`npm install jest @types/jest ts-jest`
+`npm install supertest @types/supertest`
+
+"test:watch": "jest --watch",
+"test:cov": "jest --coverage",
+"test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+"test:e2e": "jest --config ./test/jest-e2e.json"
