@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import * as dotenv from 'dotenv';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { ErrorInterceptor } from './infra/interceptors/error.interceptor';
 
 
 dotenv.config();
@@ -17,6 +18,8 @@ async function bootstrap() {
       transform: true,
     }),
   );
+
+  app.useGlobalInterceptors(new ErrorInterceptor());
 
   const documentBuilderConfig = new DocumentBuilder()
     .setTitle('Eco Feedback Hub API')

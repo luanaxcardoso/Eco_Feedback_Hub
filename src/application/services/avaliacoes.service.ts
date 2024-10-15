@@ -5,7 +5,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { Avaliacao } from "../../domain/entities/avaliacoes.entity";
 import { Repository } from "typeorm";
 import { ProdutosService } from "./produtos.service";
-import { CategoriaProduto } from "src/domain/enum/categoria-produto.enum";
+
 
 @Injectable()
 export class AvaliacoesService {

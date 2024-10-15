@@ -5,7 +5,7 @@ export class CreateAvaliacoesDto {
   
   @ApiProperty({
     description: 'Nome da pessoa que fez a avaliação',
-    example: ' Paul McCartney',
+    example: 'Paul McCartney',
   })
   @IsString()
   @IsNotEmpty()
@@ -79,7 +79,7 @@ export class CreateAvaliacoesDto {
 
   @ApiProperty({
     description: 'ID do produto',
-    example: 4,
+    example: 2,
   })
   @IsInt()
   @IsPositive()
