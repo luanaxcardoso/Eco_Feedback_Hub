@@ -45,8 +45,8 @@ describe('AvaliacoesService', () => {
     const createAvaliacaoDto: CreateAvaliacoesDto = {
       nome_Pessoa: 'Maria',
       idade: 25,
-      email: 'maria@example.com',
-      comentario: 'Ótima avaliação!',
+      email: 'maria@gmail.com',
+      comentario: 'Gostei muito do produto!',
       nota: '5',
       origem_Animal: true,
       origem_Vegetal: false,
@@ -58,9 +58,9 @@ describe('AvaliacoesService', () => {
 
     const produtoMock: Produto = {
       id: 1,
-      nome: 'Produto Exemplo',
-      marca: 'Marca Exemplo',
-      preco: 100,
+      nome: 'Quibe de Soja',
+      marca: 'Seara',
+      preco: 20,
       quantidade: 10,
       categoria: CategoriaProduto.ALIMENTO,
       avaliacoes: [],  
@@ -83,7 +83,7 @@ describe('AvaliacoesService', () => {
       ...avaliacaoMock,
       produto: {
         id: produtoMock.id,
-        nome: produtoMock.nome, // Apenas o nome do produto é necessário
+        nome: produtoMock.nome,
       },
     });
 
@@ -99,7 +99,7 @@ describe('AvaliacoesService', () => {
     const createAvaliacaoDto: CreateAvaliacoesDto = {
       nome_Pessoa: 'Carlos',
       idade: 30,
-      email: 'carlos@example.com',
+      email: 'carlos@gmail.com',
       comentario: 'Avaliação não encontrada',
       nota: '4',
       origem_Animal: true,
