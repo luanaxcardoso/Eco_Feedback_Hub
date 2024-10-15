@@ -6,14 +6,17 @@ import {
   Param,
   Delete,
   Put,
+  UseInterceptors,
 } from "@nestjs/common";
 import { ApiTags, ApiOperation, ApiParam, ApiResponse } from "@nestjs/swagger";
-import { AvaliacoesService } from "../application/services/avaliacoes.service";
-import { CreateAvaliacoesDto } from "../application/dtos/create-avaliacoes.dto";
-import { UpdateAvaliacoesDto } from "../application/dtos/update-avaliacoes.dto";
+import { AvaliacoesService } from "../../application/services/avaliacoes.service";
+import { CreateAvaliacoesDto } from "../../application/dtos/create-avaliacoes.dto";
+import { UpdateAvaliacoesDto } from "../../application/dtos/update-avaliacoes.dto";
+import { CabecalhoInterceptor } from "../interceptors/cabecalho.interceptor";
 
-@ApiTags("Avaliações") 
+@ApiTags("Avaliações")
 @Controller("avaliacoes")
+@UseInterceptors(CabecalhoInterceptor)
 export class AvaliacoesController {
   constructor(private readonly avaliacoesService: AvaliacoesService) {}
 
@@ -25,7 +28,10 @@ export class AvaliacoesController {
   }
 
   @ApiOperation({ summary: "Lista todas as avaliações" })
-  @ApiResponse({ status: 200, description: "Lista de avaliações retornada com sucesso." })
+  @ApiResponse({
+    status: 200,
+    description: "Lista de avaliações retornada com sucesso.",
+  })
   @Get()
   findAll() {
     return this.avaliacoesService.findAll();
@@ -41,7 +47,10 @@ export class AvaliacoesController {
 
   @ApiOperation({ summary: "Atualiza uma avaliação pelo ID" })
   @ApiParam({ name: "id", description: "ID da avaliação", type: String })
-  @ApiResponse({ status: 200, description: "Avaliação atualizada com sucesso." })
+  @ApiResponse({
+    status: 200,
+    description: "Avaliação atualizada com sucesso.",
+  })
   @Put(":id")
   update(
     @Param("id") id: string,

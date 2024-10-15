@@ -1,6 +1,6 @@
 import { forwardRef, Module } from "@nestjs/common";
 import { AvaliacoesService } from "../application/services/avaliacoes.service";
-import { AvaliacoesController } from "../infra/avaliacoes.controller";
+import { AvaliacoesController } from "../infra/controllers/avaliacoes.controller";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Avaliacao } from "../domain/entities/avaliacoes.entity";
 import { ProdutosModule } from "src/modules/produtos.module";
