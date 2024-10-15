@@ -1,9 +1,8 @@
-
 import { Produto } from 'src/domain/entities/produto.entity';
 import { CategoriaProduto } from 'src/domain/enum/categoria-produto.enum';
 
 describe('Produto Entity', () => {
-  it('should create a Produto instance with valid properties', () => {
+  it('deve criar uma instância de Produto com propriedades válidas', () => {
     const produto = new Produto();
     produto.id = 1;
     produto.nome = 'Produto Teste';
@@ -23,14 +22,14 @@ describe('Produto Entity', () => {
     expect(produto.avaliacoes).toBeUndefined(); 
   });
 
-  it('should have a default createdAt property', () => {
+  it('deve ter uma propriedade createdAt padrão', () => {
     const produto = new Produto();
     produto.createdAt = new Date();
 
     expect(produto.createdAt).toBeDefined();
   });
 
-  it('should initialize avaliacoes as an empty array', () => {
+  it('deve inicializar avaliacoes como um array vazio', () => {
     const produto = new Produto();
     
     expect(produto.avaliacoes).toBeUndefined(); 
