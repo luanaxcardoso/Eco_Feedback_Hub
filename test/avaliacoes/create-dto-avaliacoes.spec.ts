@@ -25,7 +25,7 @@ describe('CreateAvaliacoesDto', () => {
     const dto = new CreateAvaliacoesDto({
       nome_Pessoa: '', 
       idade: -5, 
-      email: 'not-an-email', 
+      email: 'nao-e-email', 
       nota: '',
       comentario: '',
       origem_Animal: false,

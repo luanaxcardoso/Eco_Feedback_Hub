@@ -7,6 +7,7 @@ import {
   Delete,
   Put,
   UseInterceptors,
+  ValidationPipe,
 } from "@nestjs/common";
 import { ApiTags, ApiOperation, ApiParam, ApiResponse } from "@nestjs/swagger";
 import { ProdutosService } from "../../application/services/produtos.service";
@@ -24,8 +25,8 @@ export class ProdutosController {
   @ApiResponse({ status: 201, description: "Produto criado com sucesso." })
   @ApiResponse({ status: 400, description: "Erro de validação." })
   @Post()
-  create(@Body() createProdutoDto: CreateProdutoDto) {
-    return this.produtosService.create(createProdutoDto);
+  async create(@Body(new ValidationPipe()) createProdutoDto: CreateProdutoDto) {
+    return await this.produtosService.create(createProdutoDto);
   }
 
   @ApiOperation({ summary: "Lista todos os produtos" })
@@ -35,8 +36,8 @@ export class ProdutosController {
   })
   @ApiResponse({ status: 400, description: "Erro de validação." })
   @Get()
-  findAll() {
-    return this.produtosService.findAll();
+  async findAll() {
+    return await this.produtosService.findAll();
   }
 
   @ApiOperation({ summary: "Retorna um produto pelo ID" })
@@ -44,8 +45,8 @@ export class ProdutosController {
   @ApiResponse({ status: 200, description: "Produto retornado com sucesso." })
   @ApiResponse({ status: 404, description: "Produto não encontrado." })
   @Get(":id")
-  findOne(@Param("id") id: string) {
-    return this.produtosService.findOne(+id);
+  async findOne(@Param("id") id: string) {
+    return await this.produtosService.findOne(Number(id));
   }
 
   @ApiOperation({ summary: "Atualiza um produto pelo ID" })
@@ -53,8 +54,8 @@ export class ProdutosController {
   @ApiResponse({ status: 200, description: "Produto atualizado com sucesso." })
   @ApiResponse({ status: 404, description: "Produto não encontrado." })
   @Put(":id")
-  update(@Param("id") id: string, @Body() updateProdutoDto: UpdateProdutoDto) {
-    return this.produtosService.update(+id, updateProdutoDto);
+  async update(@Param("id") id: string, @Body() updateProdutoDto: UpdateProdutoDto) {
+    return await this.produtosService.update(Number(id), updateProdutoDto);
   }
 
   @ApiOperation({ summary: "Remove um produto pelo ID" })
@@ -62,7 +63,7 @@ export class ProdutosController {
   @ApiResponse({ status: 200, description: "Produto removido com sucesso." })
   @ApiResponse({ status: 404, description: "Produto não encontrado." })
   @Delete(":id")
-  remove(@Param("id") id: string) {
-    return this.produtosService.remove(+id);
+  async remove(@Param("id") id: string) {
+    return await this.produtosService.remove(Number(id));
   }
 }
