@@ -74,25 +74,49 @@ export class AvaliacoesService {
 
 
   async update(id: number, updateAvaliacoesDto: Partial<UpdateAvaliacoesDto>) {
-    const avaliacao = await this.avaliacaoRepository.findOne({where: {id}});
+    const avaliacao = await this.avaliacaoRepository.findOne({
+      where: { id },
+      relations: ["produto"], 
+    });
+  
     if (!avaliacao) {
       throw new NotFoundException("Avaliacao não encontrada");
     }
-
+  
     Object.assign(avaliacao, updateAvaliacoesDto);
-
-    return await this.avaliacaoRepository.save(avaliacao);  
-      
+    const updatedAvaliacao = await this.avaliacaoRepository.save(avaliacao);
+  
+    const produto = avaliacao.produto;
+  
+    return {
+      id: updatedAvaliacao.id,
+      ...updatedAvaliacao,
+      produto: {
+        id: produto.id,
+        nome: produto.nome,
+      },
+    };
   }
+  
+  
 
 
   async remove(id: number) {
-   const avaliacao = await this.avaliacaoRepository.findOneBy({
-      id,
-  });
-  if (!avaliacao) {
-    throw new NotFoundException("Avaliacao não encontrada");
+    const avaliacao = await this.avaliacaoRepository.findOne({
+      where: { id },
+      relations: ['produto'],
+    });
+  
+    if (!avaliacao) {
+      throw new NotFoundException("Avaliacao não encontrada");
+    }
+  
+    await this.avaliacaoRepository.remove(avaliacao);
+  
+    return {
+      produtoId: avaliacao.produto.id,
+      produtoNome: avaliacao.produto.nome,
+      avaliacao: avaliacao,
+    };
   }
-  return this.avaliacaoRepository.remove(avaliacao);
-  }
-}
+}  

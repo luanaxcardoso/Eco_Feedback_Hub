@@ -53,7 +53,6 @@ describe('AvaliacoesService', () => {
       embalagem_Reciclavel: true,
       nacional: true,
       produto_id: 1,
-      livreDe_Crueldade: false,
     };
 
     const produtoMock: Produto = {
@@ -107,7 +106,7 @@ describe('AvaliacoesService', () => {
       embalagem_Reciclavel: true,
       nacional: true,
       produto_id: 999,
-      livreDe_Crueldade: false,
+      
     };
 
     mockProdutosService.findOne = jest.fn().mockResolvedValue(null);

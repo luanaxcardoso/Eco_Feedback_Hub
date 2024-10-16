@@ -56,13 +56,7 @@ export class CreateAvaliacoesDto {
   @IsBoolean()
   readonly origem_Vegetal: boolean;
 
-  @ApiProperty({
-    description: 'Produto livre de crueldade',
-    example: true,
-  })
-  @IsBoolean()
-  readonly livreDe_Crueldade: boolean;
-
+  
   @ApiProperty({
     description: 'Embalagem reciclável',
     example: true,
@@ -79,7 +73,7 @@ export class CreateAvaliacoesDto {
 
   @ApiProperty({
     description: 'ID do produto',
-    example: 2,
+    example: 1,
   })
   @IsInt()
   @IsPositive()

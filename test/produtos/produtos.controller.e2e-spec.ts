@@ -105,7 +105,7 @@ describe('ProdutosController (e2e)', () => {
 
   it('deve remover um produto pelo ID', async () => {
     const createProdutoDto: CreateProdutoDto = {
-        nome: 'Mousse de Chocolate',
+        nome: 'Mousse de Morango',
         marca: 'Vida Veg',
         preco: 10,
         quantidade: 2,

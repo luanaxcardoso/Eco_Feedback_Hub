@@ -1,3 +1,8 @@
+
+# Para rodar o projeto
+npm run start:dev
+
+
 # Guia de Configuração do Projeto NestJS
 
 **Abrir o terminal**  
