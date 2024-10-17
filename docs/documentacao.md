@@ -1,9 +1,8 @@
 
-# Para rodar o projeto
+## Para rodar o projeto
 npm run start:dev
 
-
-# Guia de Configuração do Projeto NestJS
+## Guia de instalação do Projeto NestJS
 
 **Abrir o terminal**  
 `npm install -g @nestjs/cli`
