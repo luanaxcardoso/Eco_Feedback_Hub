@@ -9,6 +9,40 @@
 
 **Eco Feedback Hub** É uma plataforma para a avaliação e compartilhamento de opiniões sobre produtos veganos, vegetarianos, cruelty-free e sustentáveis. 
 
+---
+### Clone o Repositório
+```bash
+https://github.com/luanaxcardoso/Eco_Feedback_Hub.git
+```
+
+### Instale as dependências
+
+`npm install`
+
+### Execute o projeto
+`npm run start:dev`  
+`npm run start`
+
+### Acesse o projeto no navegador
+```bash
+http://localhost:3000
+Documentação da API está disponível em: http://localhost:3000/swagger
+```
+### Testes
+
+`npm run test` OU  `jest --config jest.config.ts`
+
+
+### Tecnologias Utilizadas
+  
+- NestJS
+- TypeScript
+- PostgreSQL
+- TypeORM
+- Swagger
+- Jest
+- AWS
+
 #
 ### 🌱 Visão Geral
 
