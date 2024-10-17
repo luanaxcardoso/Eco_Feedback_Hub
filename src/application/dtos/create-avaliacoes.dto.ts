@@ -5,7 +5,7 @@ export class CreateAvaliacoesDto {
   
   @ApiProperty({
     description: 'Nome da pessoa que fez a avaliação',
-    example: 'Paul McCartney',
+    example: 'Ada lovelace',
   })
   @IsString()
   @IsNotEmpty()
@@ -13,7 +13,7 @@ export class CreateAvaliacoesDto {
 
   @ApiProperty({
     description: 'Idade da pessoa que fez a avaliação',
-    example: 82,
+    example: 42,
   })
   @IsInt()
   @IsPositive()
@@ -21,7 +21,7 @@ export class CreateAvaliacoesDto {
 
   @ApiProperty({
     description: 'Email da pessoa que fez a avaliação',
-    example: 'paul@gmail.com',
+    example: 'love@gmail.com',
   })
   @IsEmail()
   readonly email: string;

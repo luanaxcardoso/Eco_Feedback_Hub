@@ -89,6 +89,7 @@ export class ProdutosController {
     description: "Lista de produtos retornada com sucesso.",
   })
   @ApiResponse({ status: 400, description: "Erro de validação." })
+  @ApiResponse({ status: 500, description: "Erro interno no servidor." })
   @Get()
   async findAll() {
     return await this.produtosService.findAll();
