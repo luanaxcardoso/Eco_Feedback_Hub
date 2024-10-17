@@ -7,8 +7,10 @@ import { Repository } from "typeorm";
 import { ProdutosService } from "./produtos.service";
 
 
+
 @Injectable()
 export class AvaliacoesService {
+  ProdutoRepository: any;
   constructor(
     @InjectRepository(Avaliacao)
     private readonly avaliacaoRepository: Repository<Avaliacao>,
@@ -39,12 +41,11 @@ export class AvaliacoesService {
       produto:{
         id: produto.id,
         nome: produto.nome,
+        marca: produto.marca,
       }
       
     };
   }
-
-
 
   async findAll() {
     const avaliacoes = await this.avaliacaoRepository.find({
@@ -96,7 +97,7 @@ export class AvaliacoesService {
         nome: produto.nome,
       },
     };
-  }
+  } 
   
   
 

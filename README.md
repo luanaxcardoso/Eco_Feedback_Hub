@@ -30,7 +30,7 @@ Documentação da API está disponível em: http://localhost:3000/swagger
 ```
 ### Testes
 
-`npm run test` OU  `jest --config jest.config.ts`
+`npm run test` ou  `jest --config jest.config.ts`
 
 
 ### Tecnologias Utilizadas

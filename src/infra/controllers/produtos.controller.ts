@@ -44,34 +44,34 @@ export class ProdutosController {
           nome: 'Suco de Laranja',
           marca: 'Tropicana',
           preco: 5.00,
-          quantidade: 12,
+          quantidade: 1,
           categoria: 'Bebida' 
         }
       },
       'Limpeza': {
         value: {
           nome: 'Detergente',
-          marca: 'Ypê',
+          marca: 'VinaGreen',
           preco: 3.50,
-          quantidade: 20,
+          quantidade: 1,
           categoria: 'Limpeza' 
         }
       },
       'Cosmético': {
         value: {
-          nome: 'Creme Hidratante',
-          marca: 'Nivea',
+          nome: 'Creme Hidratante ',
+          marca: 'Organic Shop',
           preco: 25.00,
-          quantidade: 10,
+          quantidade: 1,
           categoria: 'Cosmetico' 
         }
       },
       'Outro': {
         value: {
-          nome: 'Artigo de Papelaria',
-          marca: 'Bic',
-          preco: 2.00,
-          quantidade: 50,
+          nome: 'Bota',
+          marca: 'Vegano Shoes',
+          preco: 220.00,
+          quantidade: 1,
           categoria: 'Outro' 
         }
       },
@@ -144,6 +144,7 @@ export class ProdutosController {
     return await this.produtosService.update(Number(id), updateProdutoDto);
   }
 
+  
 
   @ApiOperation({ summary: "Remove um produto pelo ID" })
   @ApiParam({ name: "id", description: "ID do produto", type: String })
