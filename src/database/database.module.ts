@@ -26,7 +26,7 @@ dotenv.config();
         migrations: [__dirname + "/../migrations/*{.ts,.js}"],
         autoLoadEntities: true,
         subscribers: [ProdutoSubscriber, AvaliacaoSubscriber],
-        synchronize: true,
+        synchronize: false,
       }),
     }),
   ],
