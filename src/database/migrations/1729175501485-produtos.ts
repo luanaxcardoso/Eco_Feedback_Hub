@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class Produtos1728939899745 implements MigrationInterface {
+export class Produtos1729175501485 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
@@ -10,7 +10,7 @@ export class Produtos1728939899745 implements MigrationInterface {
                 marca VARCHAR(255) NOT NULL,
                 preco DECIMAL(10, 2) NOT NULL,
                 quantidade INT NOT NULL,
-                categoria VARCHAR(50) NOT NULL CHECK (categoria IN ('Alimento', 'Bebida', 'Limpeza', 'Cosmético', 'Outro')) DEFAULT 'Outro'
+                categoria VARCHAR(50) NOT NULL CHECK (categoria IN ('Alimento', 'Bebida', 'Limpeza', 'Cosmetico', 'Outro')) DEFAULT 'Outro'
             )
         `);
     }

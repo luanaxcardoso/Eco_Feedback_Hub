@@ -36,15 +36,15 @@ export class CreateProdutoDto {
     readonly quantidade: number;
 
     @ApiProperty({
-      description: 'Categorias dos produtos: Alimento, Bebida, Limpeza, Cosmético, Outro.',
+      description: 'Categorias dos produtos: Alimento, Bebida, Limpeza, Cosmetico, Outro.',
       examples: [CategoriaProduto.ALIMENTO, CategoriaProduto.BEBIDA, CategoriaProduto.LIMPEZA, CategoriaProduto.COSMETICO, CategoriaProduto.OUTRO],
 
       enum: CategoriaProduto, 
-  })
-  @IsEnum(CategoriaProduto) 
-  readonly categoria: CategoriaProduto;
+    })
+    @IsEnum(CategoriaProduto) 
+    readonly categoria: CategoriaProduto;
 
-  constructor(partial: Partial<CreateProdutoDto>) {
-    Object.assign(this, partial);
-  }
+    constructor(partial: Partial<CreateProdutoDto>) {
+      Object.assign(this, partial);
+    }
 }
