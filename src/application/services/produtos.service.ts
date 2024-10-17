@@ -4,6 +4,7 @@ import { UpdateProdutoDto } from "../dtos/update-produto.dto";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Produto } from "../../domain/entities/produto.entity";
 import { Repository } from "typeorm";
+import { CategoriaProduto } from '../../domain/enum/categoria-produto.enum';
 
 @Injectable()
 export class ProdutosService {
@@ -45,23 +46,49 @@ export class ProdutosService {
     return produto;
   }
 
+  
+  async findOneByCategoria(categoria: string) {
+    const categoriaEnum = CategoriaProduto[categoria.toUpperCase() as keyof typeof CategoriaProduto];
+
+    if (!categoriaEnum) {
+      throw new NotFoundException("Categoria inválida");
+    }
+  
+    const produtos = await this.produtoRepository.find({
+      where: {
+        categoria: categoriaEnum,
+      },
+    });
+  
+    if (produtos.length === 0) {
+      throw new NotFoundException("Nenhum produto encontrado");
+    }
+  
+    return produtos;
+  }
+  
+
   async update(id: number, updateProdutoDto: UpdateProdutoDto) {
     const produtoDto = {
       nome: updateProdutoDto.nome,
       marca: updateProdutoDto.marca,
       preco: updateProdutoDto.preco,
       quantidade: updateProdutoDto.quantidade,
+      categoria: updateProdutoDto.categoria, 
     };
-
+  
     const produto = await this.produtoRepository.preload({
       id,
       ...produtoDto,
     });
+    
     if (!produto) {
       throw new NotFoundException("Produto não encontrado");
     }
+    
     return this.produtoRepository.save(produto);
   }
+  
 
   async remove(id: number) {
     const produto = await this.produtoRepository.findOneBy({
