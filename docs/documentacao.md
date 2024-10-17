@@ -48,6 +48,7 @@ npm run start:dev
 
 **Instalar o Swagger**
 `npm install @nestjs/swagger swagger-ui-express`
+
 Documentação da API está disponível em: http://localhost:3000/swagger
 
 ---------------------------------------------------
