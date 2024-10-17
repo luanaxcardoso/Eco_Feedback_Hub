@@ -24,7 +24,7 @@ async function bootstrap() {
 
   const documentBuilderConfig = new DocumentBuilder()
     .setTitle('Eco Feedback Hub API')
-    .setDescription('API para gerenciar produtos e avaliações de produtos veganos, vegetarianos, cruelty-free e sustentáveis')
+    .setDescription('API para gerenciar avaliações de produtos veganos, vegetarianos e sustentáveis')
     .setVersion('1.0')
     .addTag('Rotas da API')
     .build();
