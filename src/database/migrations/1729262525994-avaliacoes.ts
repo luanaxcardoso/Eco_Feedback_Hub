@@ -1,8 +1,8 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
 export class Avaliacoes1729262525994 implements MigrationInterface {
-
     public async up(queryRunner: QueryRunner): Promise<void> {
+        
         await queryRunner.query(`
             CREATE TABLE avaliacoes (
                 id SERIAL PRIMARY KEY,
@@ -20,12 +20,24 @@ export class Avaliacoes1729262525994 implements MigrationInterface {
                 CONSTRAINT fk_produto FOREIGN KEY (produto_id) REFERENCES produtos(id) ON DELETE CASCADE
             )
         `);
-    }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
+      
         await queryRunner.query(`
-            DROP TABLE avaliacoes
+            INSERT INTO avaliacoes (nome_Pessoa, idade, email, nota, comentario, origem_Animal, origem_Vegetal, embalagem_Reciclavel, nacional, produto_id) VALUES 
+            ('Maria Silva', 30, 'mari@gmal.com', '5', 'Produto excelente!', true, false, true, true, 1),
+            ('Joana Souza', 25, 'joa@gmail.com', '4', 'Bom, mas pode melhorar.', false, true, false, true, 1),
+            ('Ana Oliveira', 28, 'anaoliver@gmail.com', '3', 'Atendeu minhas expectativas.', true, true, true, false, 1),
+            ('Lucia Pereira', 35, 'luci.pereira@gmail.com', '5', 'Recomendo para todos!', true, false, true, true, 1);
         `);
     }
 
+    public async down(queryRunner: QueryRunner): Promise<void> {
+        
+        await queryRunner.query(`
+            DELETE FROM avaliacoes WHERE email IN ('mari@gmail.com', 'joa@gmail.com', 'anaoliver@gmail.com', 'luci.pereira@gmail.com')
+        `);
+
+        
+        await queryRunner.query(`DROP TABLE avaliacoes`);
+    }
 }

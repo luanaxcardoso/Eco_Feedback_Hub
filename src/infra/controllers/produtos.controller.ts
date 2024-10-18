@@ -41,9 +41,9 @@ export class ProdutosController {
       },
       'Bebida': {
         value: {
-          nome: 'Suco de Laranja',
-          marca: 'Tropicana',
-          preco: 5.00,
+          nome: 'Leite de Castanha',
+          marca: 'Super Bom',
+          preco: 15.00,
           quantidade: 1,
           categoria: 'Bebida' 
         }
