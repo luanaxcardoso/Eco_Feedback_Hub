@@ -24,7 +24,7 @@ import { AvaliacaoSubscriber } from "./subscribers/avaliacao-create.subscriber";
         migrations: [__dirname + "/../migrations/*{.ts,.js}"],
         autoLoadEntities: true,
         subscribers: [ProdutoSubscriber, AvaliacaoSubscriber],
-        synchronize: false,
+        synchronize: true,
       }),
     }),
   ],
