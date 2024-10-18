@@ -33,8 +33,8 @@ npm run start:dev
 **Criar migratios**
 `npm run typeorm migration:create src/database/migrations/produtos`
 
-**Gerar e rodar as migratios**
-`npm run typeorm -- -d ./src/database/dataSource.ts migration:run` `
+**Rodar as migratios**
+`src/database/dataSource.ts minpm run typeorm -- -d ./migration:run` 
 
 **Instalar o class-validator e class-transformer**  
 `npm install class-validator class-transformer`
