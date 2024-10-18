@@ -17,5 +17,5 @@ export const AppDataSource = new DataSource({
   entities: [__dirname + "/../**/*.entity{.ts,.js}"],
   migrations: [Produtos1729220170057,Avaliacoes1729220182295],
   subscribers: [ProdutoSubscriber, AvaliacaoSubscriber],
-  synchronize: false,
+  synchronize: true,
 });
