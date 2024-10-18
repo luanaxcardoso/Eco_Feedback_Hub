@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class Avaliacoes1729252516123 implements MigrationInterface {
+export class Avaliacoes1729262525994 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
@@ -27,6 +27,5 @@ export class Avaliacoes1729252516123 implements MigrationInterface {
             DROP TABLE avaliacoes
         `);
     }
-
 
 }
