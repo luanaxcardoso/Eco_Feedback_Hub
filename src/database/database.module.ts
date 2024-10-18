@@ -1,32 +1,24 @@
-import { Module } from "@nestjs/common";
-import { ConfigModule, ConfigService } from "@nestjs/config";
-import { TypeOrmModule } from "@nestjs/typeorm";
-import { ProdutoSubscriber } from "./subscribers/produto-create.subscriber";
-import { AvaliacaoSubscriber } from "./subscribers/avaliacao-create.subscriber";
+iimport { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Produto } from './entities/produto.entity'; // exemplo de entidade
+import { Avaliacao } from './entities/avaliacao.entity'; // exemplo de entidade
+import { ProdutoSubscriber } from './subscribers/produto-create.subscriber';
+import { AvaliacaoSubscriber } from './subscribers/avaliacao-create.subscriber';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      ignoreEnvFile: true, 
-    }),
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: async (configService: ConfigService) => ({
-        type: "postgres",
-        host: "localhost", 
-        port: 5432, 
-        database: "ecofeedbackhub", 
-        username: "postgres", 
-        password: "postgres", 
-        entities: [__dirname + "/../**/*.entity{.ts,.js}"],
-        migrations: [__dirname + "/../migrations/*{.ts,.js}"],
-        autoLoadEntities: true,
-        subscribers: [ProdutoSubscriber, AvaliacaoSubscriber],
-        synchronize: true,
-      }),
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost', 
+      port: 5432, 
+      username: 'postgres', 
+      password: 'postgres', 
+      database: 'ecofeedbackhub', 
+      entities: [Produto, Avaliacao], 
+      subscribers: [ProdutoSubscriber, AvaliacaoSubscriber], 
+      synchronize: true, 
     }),
   ],
 })
 export class DatabaseModule {}
+
