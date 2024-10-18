@@ -19,22 +19,9 @@ export class Avaliacoes1729262525994 implements MigrationInterface {
                 CONSTRAINT fk_produto FOREIGN KEY (produto_id) REFERENCES produtos(id) ON DELETE CASCADE
             )
         `);
-
-        
-        await queryRunner.query(`
-            INSERT INTO avaliacoes (nome_Pessoa, idade, email, nota, comentario, origem_Animal, origem_Vegetal, embalagem_Reciclavel, nacional, produto_id) VALUES 
-            ('Maria Silva', 30, 'mari@gmail.com', '5', 'Produto excelente!', true, false, true, true, 2),
-            ('Joana Souza', 25, 'joa@gmail.com', '4', 'Bom, mas pode melhorar.', false, true, false, true, 2),
-            ('Ana Oliveira', 28, 'anaoliver@gmail.com', '3', 'Atendeu minhas expectativas.', true, true, true, false, 2),
-            ('Lucia Pereira', 35, 'luci.pereira@gmail.com', '5', 'Recomendo para todos!', true, false, true, true, 2);
-        `);
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`
-            DELETE FROM avaliacoes WHERE email IN ('mari@gmail.com', 'joa@gmail.com', 'anaoliver@gmail.com', 'luci.pereira@gmail.com');
-        `);
-
         await queryRunner.query(`DROP TABLE avaliacoes`);
     }
 }
