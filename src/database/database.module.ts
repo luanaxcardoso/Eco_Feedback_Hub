@@ -3,6 +3,8 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { ProdutoSubscriber } from "./subscribers/produto-create.subscriber";
 import { AvaliacaoSubscriber } from "./subscribers/avaliacao-create.subscriber";
+import { Avaliacoes1729220182295 } from "./migrations/1729220182295-avaliacoes";
+import { Produtos1729220170057 } from "./migrations/1729220170057-produtos";
 
 @Module({
   imports: [
@@ -21,7 +23,7 @@ import { AvaliacaoSubscriber } from "./subscribers/avaliacao-create.subscriber";
         username: "postgres", 
         password: "postgres", 
         entities: [__dirname + "/../**/*.entity{.ts,.js}"],
-        migrations: [__dirname + "/../migrations/*{.ts,.js}"],
+        migrations: [Avaliacoes1729220182295, Produtos1729220170057],
         autoLoadEntities: true,
         subscribers: [ProdutoSubscriber, AvaliacaoSubscriber],
         synchronize: false,
