@@ -41,7 +41,7 @@ Documentação da API está disponível em: http://localhost:3000/swagger
 - TypeORM
 - Swagger
 - Jest
-- AWS
+- AWS (pausado)
 
 #
 ### 🌱 Visão Geral
