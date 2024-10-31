@@ -63,3 +63,8 @@ Criar um espaço onde consumidores possam descobrir, avaliar e apoiar produtos e
 
 
 
+https://github.com/user-attachments/assets/a407c205-00bf-4952-8ddd-50ab63eada5c
+
+
+
+
